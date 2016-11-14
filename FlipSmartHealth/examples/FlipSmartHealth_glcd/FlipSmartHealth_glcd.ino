@@ -18,12 +18,13 @@ int pedoin,tempin,bpmin;// variables to store sensor data
 void setup()
 {
    fg.glcdInit(); // initilize the lcd
+   //fsh.Init(); //initilize the sensors.
 }
 
 void loop()
 {
   pedoin = fsh.getPedo();
-  tempin = fsh.readTemp();
+  tempin = fsh.readTempF();
   bpmin = fsh.getBpm();
   fg.glcdDisp(pedoin,tempin,bpmin);//send the sensor values to GLCD to display.
   delay(200);

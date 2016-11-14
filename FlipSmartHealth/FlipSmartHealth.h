@@ -14,7 +14,7 @@ Please refer lisence.txt for complete details.
 
 #endif
 
-#define pulsepin A1
+#define pulsePin A1
 #define temppin A0
 #define xpin A5
 #define ypin A6
@@ -25,10 +25,15 @@ class FlipSmartHealth
 	public:
 			FlipSmartHealth();
 			int getPedo();
-			int readTemp();
+			float readTempC();
+			float readTempF();
 			int getBpm();
-		     void calibrate();
+			int getAccX();
+			int getAccY();
+			int getAccZ();
+			void calibrate();
 			void Init();
+			
 			
 // External variables
 int xavg;
@@ -38,11 +43,9 @@ int xval[5]={0};
 int yval[5]={0};
 int zval[5]={0};
   
-  int threshhold=80;
-  int steps,flag=0;
+int threshhold=80;
+int steps,flag=0;
   
-  
-
 
 	private:
 
@@ -50,7 +53,7 @@ int zval[5]={0};
                         int _baud_bt=9600;
                         String _ssid;
                         String _pwd;
-
+						void interruptSetup();
 };
 
 #endif
